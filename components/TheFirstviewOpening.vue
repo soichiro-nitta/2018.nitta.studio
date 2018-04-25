@@ -91,20 +91,21 @@ export default {
       this.dummy()
       this.flash()
       await this.$delay(900)
+      this.horizontal()
+      await this.$delay(300)
       this.listInit = this.listNormal
       await this.$delay(100)
       this.enter()
-      this.horizontal()
-      await this.$delay(1000)
+      await this.$delay(700)
       this.offDummy = true
       this.$refs.face.style.background = '#0f0f0f'
       this.paint()
-      await this.$delay(400)
+      await this.$delay(700)
       this.over()
-      await this.$delay(1200)
+      await this.$delay(1400)
       this.complete()
       this.$refs.face.classList.add('TheFirstviewOpening_Clip')
-      await this.$delay(1500)
+      await this.$delay(1300)
       this.kill()
     }
   },

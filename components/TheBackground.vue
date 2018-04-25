@@ -56,7 +56,7 @@ export default {
       this.$refs.layer2.classList.add('TheBg_Clip2')
       await this.$delay(130)
       this.$refs.layer3.classList.add('TheBg_Clip3')
-      await this.$delay(400)
+      await this.$delay(200)
       this.spout()
       await this.$delay(1000)
       this.leaveLayer()
@@ -73,7 +73,7 @@ export default {
         })
         TweenMax.to(this.$refs.title, 5, {
           scale: 3,
-          rotation: 363,
+          rotation: 365,
           ease: Expo.easeInOut
         })
         TweenMax.to(this.$refs.shadow, 5, {
@@ -100,9 +100,9 @@ export default {
     rotate () {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.title, 150, {
-          rotation: 363,
+          rotation: 365,
           startAt: {
-            rotation: 3
+            rotation: 5
           },
           ease: Power0.easeNone,
           repeat: -1
