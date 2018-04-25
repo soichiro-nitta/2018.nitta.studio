@@ -20,8 +20,8 @@ module.exports = {
       { property: 'twitter:image', content: 'https://nitta.studio/ogp-0426.jpg' }
     ],
     link: [
-      { rel: 'icon', href: 'favicon.png' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon.jpg' },
+      { rel: 'icon', href: '/icon.png' },
+      { rel: 'apple-touch-icon', href: '/icon.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/earlyaccess/notosansjapanese.css' }
     ]
@@ -75,7 +75,7 @@ module.exports = {
     'display': 'standalone',
     'start_url': '/',
     'icons': [{
-      'src': '/apple-touch-icon.jpg',
+      'src': '/icon.png',
       'sizes': '48x48 96x96 128x128 256x256'
     }]
   },
