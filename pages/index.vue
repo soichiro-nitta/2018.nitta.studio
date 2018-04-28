@@ -8,7 +8,7 @@
     .separator
     .section
       .nameEng Soichiro Nitta
-      .nameJa 新田 聡一郎 (23)
+      h1.nameJa 新田 聡一郎 (23)
     .separator
     .section
       .subTitle 01. Design x Develop
@@ -157,6 +157,7 @@ export default {
     +large()
       font-size largeFont30
   .nameJa
+    margin 0
     font-size 15px
     font-weight bold
     letter-spacing 8px
