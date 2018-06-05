@@ -46,7 +46,7 @@
           span  /
           |  CodeIgniter
           span  /
-          |  Wordpress
+          |  WordPress
           span  /
           |  MySQL
         li Netlify
