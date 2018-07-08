@@ -23,7 +23,7 @@
           span.hidden @nitta.studio
           .underline
     .section
-      .description ご依頼などございましたら、上記よりお気軽にご連絡ください。デザイン・開発のほか、ロゴ・写真・映像など、素材の製作も承っております。なお、実績公開NGのお仕事は受け付けておりません。なお、彼女も募集中でございます。ぜひ宜しくお願いします。
+      .description ご依頼などございましたら、上記よりお気軽にご連絡ください。デザイン・開発のほか、ロゴ・写真・映像など、素材の製作も承っております。なお、実績公開NGのお仕事は受け付けておりません。
     .section
       .produced Produced by Soichiro Nitta.
 </template>
