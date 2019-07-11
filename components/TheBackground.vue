@@ -13,15 +13,18 @@
     .TheBg_Layer.TheBg_Layer3(
       ref='layer3'
     )
-      .TheBg_LayerInner {{ sitename }}
+      .TheBg_LayerInner
+        .tbc {{ sitename }}
     .TheBg_Layer.TheBg_Layer2(
       ref='layer2'
     )
-      .TheBg_LayerInner {{ sitename }}
+      .TheBg_LayerInner
+        .tbc {{ sitename }}
     .TheBg_Layer.TheBg_Layer1(
       ref='layer1'
     )
-      .TheBg_LayerInner {{ sitename }}
+      .TheBg_LayerInner
+        .tbc {{ sitename }}
 </template>
 
 <script>
@@ -51,11 +54,11 @@ export default {
     async completed () {
       this.canvasAnimation()
       await this.$delay(130)
-      this.$refs.layer1.classList.add('TheBg_Clip1')
+      this.clip1()
       await this.$delay(130)
-      this.$refs.layer2.classList.add('TheBg_Clip2')
+      this.clip2()
       await this.$delay(130)
-      this.$refs.layer3.classList.add('TheBg_Clip3')
+      this.clip3()
       await this.$delay(200)
       this.spout()
       await this.$delay(1000)
@@ -106,6 +109,30 @@ export default {
           },
           ease: Power0.easeNone,
           repeat: -1
+        })
+      })
+    },
+    clip1 () {
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.layer1, 1.3, {
+          width: this.isMobile ? '0%' : '50px',
+          ease: Expo.easeOut
+        })
+      })
+    },
+    clip2 () {
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.layer2, 1.3, {
+          width: this.isMobile ? '0%' : '150px',
+          ease: Expo.easeOut
+        })
+      })
+    },
+    clip3 () {
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.layer3, 1.3, {
+          width: this.isMobile ? '0%' : '300px',
+          ease: Expo.easeOut
         })
       })
     },
@@ -366,19 +393,17 @@ export default {
     height 100%
     color #2d2d2d
   &_Layer
-    display flex
-    justify-content center
-    align-items center
     position absolute
     top 0
-    left 0
+    right 0
     width 100%
     height 100%
     text-align center
     font-size 13.5vw
     font-weight bold
     line-height 1.5
-    clip-path inset(0 0 0 0)
+    // clip-path inset(0 0 0 0)
+    overflow hidden
     +large()
       font-size 9vw
       letter-spacing 0.1vw
@@ -394,21 +419,14 @@ export default {
     color #626262
     background #1b1b1b
     opacity 0
-  &_Clip1
-    clip-path inset(0 0 0 100%) !important
-    transition all 1.3s ExpoEaseOut
-    +large()
-      clip-path inset(0 0 0 calc(100% - 300px / 6)) !important
-  &_Clip2
-    clip-path inset(0 0 0 100%) !important
-    transition all 1.3s ExpoEaseOut
-    +large()
-      clip-path inset(0 0 0 calc(100% - 300px / 2)) !important
-  &_Clip3
-    clip-path inset(0 0 0 100%) !important
-    transition all 1.3s ExpoEaseOut
-    +large()
-      clip-path inset(0 0 0 calc(100% - 300px)) !important
+  &_LayerInner
+    display table
+    position absolute
+    top 0
+    right 0
+    width calc(100vw - 20px)
+    height 100%
+    text-align center
   #canvas
     position absolute
     top 0

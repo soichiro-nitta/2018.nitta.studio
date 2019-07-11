@@ -19,24 +19,23 @@
       ref='face'
     )
       .TheFirstviewOpening_FaceWrap
-        transition-group(
-          tag='div'
-        )
-          div.TheFirstviewOpening_Letter(
-            v-for='(letter, index) in listInit',
-            :data-index='letter.id - 1',
-            :key='letter.id'
-          )
-            span {{ letter.value }}
-        .TheFirstviewOpening_Over(
-          ref='over'
-        ) {{ sitename }}
-        .TheFirstviewOpening_HorizontalTop.TheFirstviewOpening_HorizontalTop1
-        .TheFirstviewOpening_HorizontalTop.TheFirstviewOpening_HorizontalTop2
-        .TheFirstviewOpening_HorizontalTop.TheFirstviewOpening_HorizontalTop3
-        .TheFirstviewOpening_HorizontalBottom.TheFirstviewOpening_HorizontalBottom1
-        .TheFirstviewOpening_HorizontalBottom.TheFirstviewOpening_HorizontalBottom2
-        .TheFirstviewOpening_HorizontalBottom.TheFirstviewOpening_HorizontalBottom3
+        .TheFirstviewOpening_FaceWrapInner
+          transition-group
+            div.TheFirstviewOpening_Letter(
+              v-for='(letter, index) in listInit',
+              :data-index='letter.id - 1',
+              :key='letter.id'
+            )
+              span {{ letter.value }}
+          .TheFirstviewOpening_Over(
+            ref='over'
+          ) {{ sitename }}
+          .TheFirstviewOpening_HorizontalTop.TheFirstviewOpening_HorizontalTop1
+          .TheFirstviewOpening_HorizontalTop.TheFirstviewOpening_HorizontalTop2
+          .TheFirstviewOpening_HorizontalTop.TheFirstviewOpening_HorizontalTop3
+          .TheFirstviewOpening_HorizontalBottom.TheFirstviewOpening_HorizontalBottom1
+          .TheFirstviewOpening_HorizontalBottom.TheFirstviewOpening_HorizontalBottom2
+          .TheFirstviewOpening_HorizontalBottom.TheFirstviewOpening_HorizontalBottom3
     .TheFirstviewOpening_Vertical.TheFirstviewOpening_VerticalL
     .TheFirstviewOpening_Vertical
     .TheFirstviewOpening_Vertical.TheFirstviewOpening_VerticalR
@@ -104,7 +103,7 @@ export default {
       this.over()
       await this.$delay(1400)
       this.complete()
-      this.$refs.face.classList.add('TheFirstviewOpening_Clip')
+      this.clip()
       await this.$delay(1300)
       this.kill()
     }
@@ -214,6 +213,14 @@ export default {
         })
       })
     },
+    clip () {
+      requestAnimationFrame(() => {
+        TweenMax.to(this.$refs.face, 1.3, {
+          width: '0%',
+          ease: Expo.easeOut
+        })
+      })
+    },
     ...mapMutations({
       paint: 'firstview/paint',
       complete: 'firstview/complete',
@@ -268,16 +275,13 @@ export default {
     background #212121
   &_DummyC
     background #323232
-  &_Clip
-    clip-path inset(0 0 0 100%) !important
-    transition all 1.3s ExpoEaseOut
   &_Layer
     display flex
     justify-content center
     align-items center
     position absolute
     top 0
-    left 0
+    right 0
     width 100%
     height 100%
     text-align center
@@ -289,6 +293,15 @@ export default {
       font-size 9vw
       letter-spacing 0.1vw
   &_FaceWrap
+    display flex
+    align-items center
+    justify-content center
+    position absolute
+    top 0
+    right 0
+    width calc(100vw - 20px)
+    height 100%
+  &_FaceWrapInner
     display inline-block
     position relative
     overflow hidden
