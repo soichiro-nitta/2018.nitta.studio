@@ -427,6 +427,8 @@ export default {
     width calc(100vw - 20px)
     height 100%
     text-align center
+    +large()
+      width calc(100vw - 40px)
   #canvas
     position absolute
     top 0

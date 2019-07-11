@@ -301,6 +301,8 @@ export default {
     right 0
     width calc(100vw - 20px)
     height 100%
+    +large()
+      width calc(100vw - 40px)
   &_FaceWrapInner
     display inline-block
     position relative
