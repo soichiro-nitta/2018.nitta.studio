@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import {mapGetters, mapMutations} from 'vuex'
-import {TweenMax, Expo, Elastic} from 'gsap'
+import { mapGetters, mapMutations } from 'vuex'
+import { TweenMax, Expo, Elastic } from 'gsap'
 
 export default {
-  data () {
+  data() {
     return {
       off: false,
       clickable: false
@@ -24,7 +24,7 @@ export default {
     })
   },
   watch: {
-    async loaded () {
+    async loaded() {
       await this.$delay(3600)
       this.enter()
       await this.$delay(200)
@@ -34,7 +34,7 @@ export default {
     }
   },
   methods: {
-    async click () {
+    async click() {
       if (!this.clickable) return
       this.clickable = false
       this.playMp3()
@@ -43,33 +43,43 @@ export default {
       await this.$delay(600)
       this.off = true
     },
-    enter () {
+    enter() {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo('.TheFirstviewStart_Letter', 1.5, {
-          opacity: 1,
-          y: 0,
-          startAt: {
-            y: '-20px'
+        TweenMax.staggerTo(
+          '.TheFirstviewStart_Letter',
+          1.5,
+          {
+            opacity: 1,
+            y: 0,
+            startAt: {
+              y: '-20px'
+            },
+            ease: Elastic.easeOut
           },
-          ease: Elastic.easeOut
-        }, 0.05)
+          0.05
+        )
       })
     },
-    effect () {
+    effect() {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo('.TheFirstviewStart_Letter', 0.3, {
-          color: '#fff',
-          ease: Expo.easeInOut,
-          repeat: -1,
-          yoyo: true
-        }, 0.1)
+        TweenMax.staggerTo(
+          '.TheFirstviewStart_Letter',
+          0.3,
+          {
+            color: '#fff',
+            ease: Expo.easeInOut,
+            repeat: -1,
+            yoyo: true
+          },
+          0.1
+        )
       })
     },
-    playMp3 () {
+    playMp3() {
       document.getElementById('sound').play()
       if (!this.$device.isMobile) document.getElementById('bgm').play()
     },
-    leave () {
+    leave() {
       requestAnimationFrame(() => {
         TweenMax.to('.TheFirstviewStart', 0.6, {
           opacity: 0,

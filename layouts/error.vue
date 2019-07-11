@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  mounted () {
+  mounted() {
     this.$router.replace({ path: '/' })
   }
 }

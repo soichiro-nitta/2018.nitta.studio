@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import TheFirstviewOpening from '~/components/TheFirstviewOpening.vue'
 import TheFirstviewStart from '~/components/TheFirstviewStart.vue'
 import TheFirstviewLoading from '~/components/TheFirstviewLoading.vue'
@@ -34,5 +34,3 @@ export default {
   width 100%
   height 100%
 </style>
-
-

@@ -6,16 +6,16 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       loading: false
     }
   },
   methods: {
-    start () {
+    start() {
       this.loading = true
     },
-    finish () {
+    finish() {
       this.loading = false
     }
   }
@@ -34,4 +34,3 @@ export default {
   pdading-top 200px
   font-size 30px
 </style>
-

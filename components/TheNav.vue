@@ -85,11 +85,11 @@
 </template>
 
 <script>
-import {TweenMax, Expo, Back, Elastic} from 'gsap'
-import {mapGetters} from 'vuex'
+import { TweenMax, Expo, Back, Elastic } from 'gsap'
+import { mapGetters } from 'vuex'
 
 export default {
-  data () {
+  data() {
     return {
       opened: false,
       progress: false,
@@ -102,7 +102,7 @@ export default {
     })
   },
   watch: {
-    async completed () {
+    async completed() {
       await this.$delay(500)
       this.enterSwitch()
       if (this.isMobile) return
@@ -111,10 +111,10 @@ export default {
     }
   },
   methods: {
-    async toggle () {
+    toggle() {
       !this.opened ? this.open() : this.close()
     },
-    async open () {
+    async open() {
       if (this.progress) return
       this.progress = true
       this.openSwitch()
@@ -124,7 +124,7 @@ export default {
       this.progress = false
       this.opened = true
     },
-    async close () {
+    async close() {
       if (!this.isMobile) return
       if (this.progress) return
       this.progress = true
@@ -135,7 +135,7 @@ export default {
       this.leaveMenu()
       this.opened = false
     },
-    watchRoute () {
+    watchRoute() {
       this.$watch('$route', () => {
         this.$nextTick(() => {
           TweenMax.to('.TheNav_MenuContentListMark', 0.7, {
@@ -152,7 +152,7 @@ export default {
         })
       })
     },
-    enterSwitch () {
+    enterSwitch() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.switchDummy1, 1, {
           scaleX: 1,
@@ -190,13 +190,13 @@ export default {
         })
       })
     },
-    enterMenu () {
+    enterMenu() {
       this.$refs.menu.style.display = 'block'
     },
-    leaveMenu () {
+    leaveMenu() {
       this.$refs.menu.style.display = 'none'
     },
-    openSwitch () {
+    openSwitch() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.switchContent, 0.65, {
           rotation: 180,
@@ -236,7 +236,7 @@ export default {
         })
       })
     },
-    openMenu () {
+    openMenu() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.menuDummy1, this.isMobile ? 0.7 : 1, {
           left: 0,
@@ -268,18 +268,28 @@ export default {
           ease: Expo.easeOut,
           delay: 0.7
         })
-        TweenMax.staggerTo('.TheNav_MenuContentListEng', 1, {
-          opacity: 1,
-          x: '-60px',
-          ease: Expo.easeOut,
-          delay: 0.48
-        }, 0.03)
-        TweenMax.staggerTo('.TheNav_MenuContentListJa', 1, {
-          opacity: 1,
-          x: '-25px',
-          ease: Expo.easeOut,
-          delay: 0.73
-        }, 0.03)
+        TweenMax.staggerTo(
+          '.TheNav_MenuContentListEng',
+          1,
+          {
+            opacity: 1,
+            x: '-60px',
+            ease: Expo.easeOut,
+            delay: 0.48
+          },
+          0.03
+        )
+        TweenMax.staggerTo(
+          '.TheNav_MenuContentListJa',
+          1,
+          {
+            opacity: 1,
+            x: '-25px',
+            ease: Expo.easeOut,
+            delay: 0.73
+          },
+          0.03
+        )
         TweenMax.to(this.$refs.footer, 1, {
           y: '-100px',
           ease: Expo.easeOut,
@@ -303,7 +313,7 @@ export default {
         })
       })
     },
-    closeSwitch () {
+    closeSwitch() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.switchContent, 0.65, {
           rotation: 360,
@@ -341,7 +351,7 @@ export default {
         })
       })
     },
-    closeMenu () {
+    closeMenu() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.menuFace, 0.7, {
           left: '100%',
@@ -371,16 +381,26 @@ export default {
           height: 0,
           ease: Expo.easeOut
         })
-        TweenMax.staggerTo('.TheNav_MenuContentListEng', 0.7, {
-          opacity: 0,
-          x: 0,
-          ease: Expo.easeOut
-        }, 0.02)
-        TweenMax.staggerTo('.TheNav_MenuContentListJa', 0.7, {
-          opacity: 0,
-          x: 0,
-          ease: Expo.easeOut
-        }, 0.02)
+        TweenMax.staggerTo(
+          '.TheNav_MenuContentListEng',
+          0.7,
+          {
+            opacity: 0,
+            x: 0,
+            ease: Expo.easeOut
+          },
+          0.02
+        )
+        TweenMax.staggerTo(
+          '.TheNav_MenuContentListJa',
+          0.7,
+          {
+            opacity: 0,
+            x: 0,
+            ease: Expo.easeOut
+          },
+          0.02
+        )
         TweenMax.to(this.$refs.footer, 0.7, {
           y: 0,
           ease: Expo.easeOut
@@ -626,5 +646,3 @@ export default {
     transform scaleX(0)
     transform-origin right center
 </style>
-
-

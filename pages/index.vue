@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import {TweenMax, Elastic, Back} from 'gsap'
+import { mapGetters } from 'vuex'
+import { TweenMax, Elastic, Back } from 'gsap'
 
 export default {
   computed: {
@@ -47,35 +47,45 @@ export default {
     })
   },
   watch: {
-    async completed () {
+    async completed() {
       document.getElementById('scrollArea').scrollTop = 0
       await this.$delay(300)
       requestAnimationFrame(() => {
-        TweenMax.staggerTo('.section', 5, {
-          y: 0,
-          opacity: 1,
-          ease: Elastic.easeOut.config(1, 0.3),
-          startAt: {
-            y: '40px',
-            opacity: 0
-          }
-        }, 0.1)
-        TweenMax.staggerTo('.separator', 5, {
-          scaleX: 1,
-          x: 0,
-          opacity: 1,
-          transformOrigin: 'left center',
-          ease: Elastic.easeOut.config(1, 0.3),
-          startAt: {
-            scaleX: 0,
-            x: '-20px',
-            opacity: 0
-          }
-        }, 0.1)
+        TweenMax.staggerTo(
+          '.section',
+          5,
+          {
+            y: 0,
+            opacity: 1,
+            ease: Elastic.easeOut.config(1, 0.3),
+            startAt: {
+              y: '40px',
+              opacity: 0
+            }
+          },
+          0.1
+        )
+        TweenMax.staggerTo(
+          '.separator',
+          5,
+          {
+            scaleX: 1,
+            x: 0,
+            opacity: 1,
+            transformOrigin: 'left center',
+            ease: Elastic.easeOut.config(1, 0.3),
+            startAt: {
+              scaleX: 0,
+              x: '-20px',
+              opacity: 0
+            }
+          },
+          0.1
+        )
       })
     }
   },
-  mounted () {
+  mounted() {
     document.getElementById('scrollArea').scrollTop = 0
   },
   head: {
@@ -88,49 +98,71 @@ export default {
   },
   transition: {
     appear: false,
-    enter (el, done) {
+    enter(el, done) {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo('.section', 1, {
-          y: 0,
-          opacity: 1,
-          ease: Back.easeOut.config(3),
-          startAt: {
-            y: '40px',
-            opacity: 0
+        TweenMax.staggerTo(
+          '.section',
+          1,
+          {
+            y: 0,
+            opacity: 1,
+            ease: Back.easeOut.config(3),
+            startAt: {
+              y: '40px',
+              opacity: 0
+            }
+          },
+          0.1,
+          () => {
+            done()
           }
-        }, 0.1, () => {
-          done()
-        })
-        TweenMax.staggerTo('.separator', 1, {
-          scaleX: 1,
-          x: 0,
-          opacity: 1,
-          transformOrigin: 'left center',
-          ease: Back.easeOut.config(3),
-          startAt: {
-            scaleX: 0,
-            x: '-20px',
-            opacity: 0
-          }
-        }, 0.1)
+        )
+        TweenMax.staggerTo(
+          '.separator',
+          1,
+          {
+            scaleX: 1,
+            x: 0,
+            opacity: 1,
+            transformOrigin: 'left center',
+            ease: Back.easeOut.config(3),
+            startAt: {
+              scaleX: 0,
+              x: '-20px',
+              opacity: 0
+            }
+          },
+          0.1
+        )
       })
     },
-    leave (el, done) {
+    leave(el, done) {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo('.section', 0.7, {
-          y: '-40px',
-          opacity: 0,
-          ease: Back.easeIn.config(3)
-        }, 0.1, () => {
-          done()
-        })
-        TweenMax.staggerTo('.separator', 0.7, {
-          scaleX: 0,
-          x: '20px',
-          opacity: 0,
-          transformOrigin: 'right center',
-          ease: Back.easeIn.config(3)
-        }, 0.1)
+        TweenMax.staggerTo(
+          '.section',
+          0.7,
+          {
+            y: '-40px',
+            opacity: 0,
+            ease: Back.easeIn.config(3)
+          },
+          0.1,
+          () => {
+            done()
+          }
+        )
+        TweenMax.staggerTo(
+          '.separator',
+          0.7,
+          {
+            scaleX: 0,
+            x: '20px',
+            opacity: 0,
+            transformOrigin: 'right center',
+            ease: Back.easeIn.config(3)
+          },
+          0.1
+        )
       })
     }
   }
@@ -212,4 +244,3 @@ export default {
         +large()
           margin-top 10px
 </style>
-

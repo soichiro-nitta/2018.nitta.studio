@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import {TweenMax, TimelineMax, Expo, Elastic} from 'gsap'
+import { mapGetters } from 'vuex'
+import { TweenMax, TimelineMax, Expo, Elastic } from 'gsap'
 
 export default {
-  data () {
+  data() {
     return {
       off: false
     }
@@ -23,7 +23,7 @@ export default {
     })
   },
   watch: {
-    async loaded () {
+    async loaded() {
       await this.$delay(2000)
       this.bar()
       await this.$delay(500)
@@ -35,28 +35,30 @@ export default {
       this.off = true
     }
   },
-  mounted () {
+  mounted() {
     window.onload = () => {
       this.loading()
     }
   },
   methods: {
-    loading () {
+    loading() {
       const timeLine = new TimelineMax()
       timeLine.repeat(-1)
       requestAnimationFrame(() => {
-        timeLine.to(this.$refs.gray, 0.5, {
-          scaleX: 1,
-          transformOrigin: 'left center',
-          ease: Expo.easeIn
-        }).to(this.$refs.gray, 0.5, {
-          scaleX: 0,
-          transformOrigin: 'right center',
-          ease: Expo.easeOut
-        })
+        timeLine
+          .to(this.$refs.gray, 0.5, {
+            scaleX: 1,
+            transformOrigin: 'left center',
+            ease: Expo.easeIn
+          })
+          .to(this.$refs.gray, 0.5, {
+            scaleX: 0,
+            transformOrigin: 'right center',
+            ease: Expo.easeOut
+          })
       })
     },
-    bar () {
+    bar() {
       TweenMax.pauseAll()
       requestAnimationFrame(() => {
         TweenMax.set(this.$refs.gray, {
@@ -70,7 +72,7 @@ export default {
         })
       })
     },
-    round () {
+    round() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.gray, 1, {
           width: '20px',
@@ -80,17 +82,21 @@ export default {
         })
       })
     },
-    explosion () {
+    explosion() {
       const wide = window.innerWidth > window.innerHeight
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.gray, 1, {
-          width: wide ? `${window.innerWidth * 2}px` : `${window.innerHeight * 2}px`,
-          height: wide ? `${window.innerWidth * 2}px` : `${window.innerHeight * 2}px`,
+          width: wide
+            ? `${window.innerWidth * 2}px`
+            : `${window.innerHeight * 2}px`,
+          height: wide
+            ? `${window.innerWidth * 2}px`
+            : `${window.innerHeight * 2}px`,
           ease: Expo.easeInOut
         })
       })
     },
-    changeColor () {
+    changeColor() {
       requestAnimationFrame(() => {
         TweenMax.to(document.body, 1, {
           backgroundColor: '#444',
@@ -122,6 +128,3 @@ export default {
     background #444
     transform scaleX(0)
 </style>
-
-
-

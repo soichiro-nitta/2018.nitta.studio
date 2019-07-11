@@ -16,22 +16,22 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
-  data () {
+  data() {
     return {
       loadedSound: false,
       loadedBgm: false
     }
   },
   methods: {
-    canplaySound () {
+    canplaySound() {
       this.loadedSound = true
       if (this.$device.isMobile) this.setLoaded()
       if (this.loadedBgm) this.setLoaded()
     },
-    canplayBgm () {
+    canplayBgm() {
       this.loadedBgm = true
       if (this.loadedSound) this.setLoaded()
     },

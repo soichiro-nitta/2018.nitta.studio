@@ -7,7 +7,7 @@ export const getters = {
 }
 
 export const mutations = {
-  setLoaded (state) {
+  setLoaded(state) {
     state.loaded = true
   }
 }

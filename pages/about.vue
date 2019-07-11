@@ -113,12 +113,12 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import {TweenMax, Elastic, Expo, Back} from 'gsap'
-import {url} from '~/assets/data/config.json'
+import { mapGetters } from 'vuex'
+import { TweenMax, Elastic, Expo, Back } from 'gsap'
+import { url } from '~/assets/data/config.json'
 
 export default {
-  data () {
+  data() {
     return {
       src: '/thumbnail.jpg',
       url: url
@@ -130,35 +130,45 @@ export default {
     })
   },
   watch: {
-    async completed () {
+    async completed() {
       document.getElementById('scrollArea').scrollTop = 0
       await this.$delay(300)
       requestAnimationFrame(() => {
-        TweenMax.staggerTo('.section', 5, {
-          y: 0,
-          opacity: 1,
-          ease: Elastic.easeOut.config(1, 0.3),
-          startAt: {
-            y: '40px',
-            opacity: 0
-          }
-        }, 0.1)
-        TweenMax.staggerTo('.separator', 5, {
-          scaleX: 1,
-          x: 0,
-          opacity: 1,
-          transformOrigin: 'left center',
-          ease: Elastic.easeOut.config(1, 0.3),
-          startAt: {
-            scaleX: 0,
-            x: '-20px',
-            opacity: 0
-          }
-        }, 0.1)
+        TweenMax.staggerTo(
+          '.section',
+          5,
+          {
+            y: 0,
+            opacity: 1,
+            ease: Elastic.easeOut.config(1, 0.3),
+            startAt: {
+              y: '40px',
+              opacity: 0
+            }
+          },
+          0.1
+        )
+        TweenMax.staggerTo(
+          '.separator',
+          5,
+          {
+            scaleX: 1,
+            x: 0,
+            opacity: 1,
+            transformOrigin: 'left center',
+            ease: Elastic.easeOut.config(1, 0.3),
+            startAt: {
+              scaleX: 0,
+              x: '-20px',
+              opacity: 0
+            }
+          },
+          0.1
+        )
       })
     }
   },
-  mounted () {
+  mounted() {
     document.getElementById('scrollArea').scrollTop = 0
     this.$imageOnLoad(this.src, () => {
       requestAnimationFrame(() => {
@@ -171,14 +181,14 @@ export default {
     const canvas = document.getElementById('canvasThumb')
     const ctx = canvas.getContext('2d')
 
-    function resize () {
+    function resize() {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
     }
     resize()
     window.onresize = resize
 
-    function noise (ctx) {
+    function noise(ctx) {
       const w = ctx.canvas.width
       const h = ctx.canvas.height
       const idata = ctx.createImageData(w, h)
@@ -186,7 +196,7 @@ export default {
       const len = buffer32.length
 
       let i = 0
-      for (; i < len;) {
+      for (; i < len; ) {
         buffer32[i++] = ((255 * Math.random()) | 0) << 24
       }
 
@@ -215,48 +225,70 @@ export default {
   },
   transition: {
     appear: false,
-    enter (el, done) {
+    enter(el, done) {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo('.section', 1, {
-          y: 0,
-          opacity: 1,
-          ease: Back.easeOut.config(3),
-          startAt: {
-            y: '40px',
-            opacity: 0
+        TweenMax.staggerTo(
+          '.section',
+          1,
+          {
+            y: 0,
+            opacity: 1,
+            ease: Back.easeOut.config(3),
+            startAt: {
+              y: '40px',
+              opacity: 0
+            }
+          },
+          0.1,
+          () => {
+            done()
           }
-        }, 0.1, () => {
-          done()
-        })
-        TweenMax.staggerTo('.separator', 1, {
-          scaleX: 1,
-          x: 0,
-          opacity: 1,
-          transformOrigin: 'left center',
-          ease: Back.easeOut.config(3),
-          startAt: {
-            scaleX: 0,
-            x: '-20px',
-            opacity: 0
-          }
-        }, 0.1)
+        )
+        TweenMax.staggerTo(
+          '.separator',
+          1,
+          {
+            scaleX: 1,
+            x: 0,
+            opacity: 1,
+            transformOrigin: 'left center',
+            ease: Back.easeOut.config(3),
+            startAt: {
+              scaleX: 0,
+              x: '-20px',
+              opacity: 0
+            }
+          },
+          0.1
+        )
       })
     },
-    leave (el, done) {
+    leave(el, done) {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo('.section', 0.7, {
-          y: '-40px',
-          opacity: 0,
-          ease: Back.easeIn.config(3)
-        }, 0.1, () => {
-          done()
-        })
-        TweenMax.staggerTo('.separator', 0.7, {
-          scaleX: 0,
-          x: '20px',
-          opacity: 0,
-          ease: Back.easeIn.config(3)
-        }, 0.1)
+        TweenMax.staggerTo(
+          '.section',
+          0.7,
+          {
+            y: '-40px',
+            opacity: 0,
+            ease: Back.easeIn.config(3)
+          },
+          0.1,
+          () => {
+            done()
+          }
+        )
+        TweenMax.staggerTo(
+          '.separator',
+          0.7,
+          {
+            scaleX: 0,
+            x: '20px',
+            opacity: 0,
+            ease: Back.easeIn.config(3)
+          },
+          0.1
+        )
       })
     }
   }

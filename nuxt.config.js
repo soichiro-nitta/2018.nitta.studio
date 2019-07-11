@@ -1,13 +1,21 @@
 module.exports = {
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     titleTemplate: '%s | Nitta.Studio🖕🏻',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,shrink-to-fit=no' },
-      { hid: 'description', name: 'description', content: 'Produced by Soichiro Nitta.' },
+      {
+        name: 'viewport',
+        content:
+          'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,shrink-to-fit=no'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Produced by Soichiro Nitta.'
+      },
       { name: 'keywords', content: 'Nitta Studio,新田 聡一郎,Soichiro,Nitta' },
       { property: 'fb:app_id', content: '654555221603303' },
       { property: 'og:description', content: 'Produced by Soichiro Nitta.' },
@@ -16,30 +24,40 @@ module.exports = {
       { property: 'twitter:card', content: 'summary_large_image' },
       { property: 'twitter:site', content: '@soichiro_nitta' },
       { property: 'twitter:creator', content: '@soichiro_nitta' },
-      { property: 'twitter:description', content: 'Produced by Soichiro Nitta.' },
-      { property: 'twitter:image', content: 'https://nitta.studio/ogp-0426.jpg' }
+      {
+        property: 'twitter:description',
+        content: 'Produced by Soichiro Nitta.'
+      },
+      {
+        property: 'twitter:image',
+        content: 'https://nitta.studio/ogp-0426.jpg'
+      }
     ],
     link: [
       { rel: 'icon', href: '/icon.png' },
       { rel: 'apple-touch-icon', href: '/icon.png' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/earlyaccess/notosansjapanese.css' }
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/earlyaccess/notosansjapanese.css'
+      }
     ]
   },
-  css: [
-    '~/assets/css/default.css'
-  ],
+  css: ['~/assets/css/default.css'],
   /*
-  ** Customize the progress bar color
-  */
+   ** Customize the progress bar color
+   */
   loading: {
     color: '#444',
     height: '10px'
   },
   // loading: '~/components/TheLoading',
   /*
-  ** Customize page transition
-  */
+   ** Customize page transition
+   */
   // transition: {
   //   appear: false,
   //   enter (el, done) {
@@ -47,21 +65,22 @@ module.exports = {
   //   leave (el, done) {
   // },
   /*
-  ** nuxt-modules
-  */
-  modules: [
-    '@nuxtjs/pwa',
-    'nuxt-device-detect'
-  ],
+   ** nuxt-modules
+   */
+  modules: ['@nuxtjs/pwa', 'nuxt-device-detect', '@nuxtjs/style-resources'],
+  styleResources: {
+    // your settings here
+    stylus: ['~/assets/stylus/variables.styl', '~/assets/stylus/mixins.styl']
+  },
   /*
-  ** Workbox
-  */
+   ** Workbox
+   */
   // workbox: {
   //   dev: true,
   // },
   /*
-  ** Manifest
-  */
+   ** Manifest
+   */
   manifest: {
     name: 'Nitta.Studio',
     short_name: 'Nitta.Studio',
@@ -72,39 +91,37 @@ module.exports = {
     lang: 'ja',
     theme_color: '#0f0f0f',
     background_color: '#0f0f0f',
-    'display': 'standalone',
-    'start_url': '/',
-    'icons': [{
-      'src': '/icon.png',
-      'sizes': '48x48 96x96 128x128 256x256'
-    }]
+    display: 'standalone',
+    start_url: '/',
+    icons: [
+      {
+        src: '/icon.png',
+        sizes: '48x48 96x96 128x128 256x256'
+      }
+    ]
   },
   /*
-  ** Vue Router
-  */
+   ** Vue Router
+   */
   router: {
     linkActiveClass: 'active-link',
-    linkExactActiveClass: 'exact-active-link'
+    linkExactActiveClass: 'exact-active-link',
+    linkPrefetchedClass: 'nuxt-link-prefetched'
   },
   /*
-  ** Plugins
-  */
-  plugins: [
-    '~/plugins/mixin'
-  ],
+   ** Plugins
+   */
+  plugins: ['~/plugins/mixin'],
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
-    vendor: [
-      'gsap',
-      '~/assets/data/config.json'
-    ],
     /*
-    ** Run ESLint on save
-    */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -112,20 +129,6 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-      // find the stylus loader
-      const stylus = config.module.rules[0].options.loaders.stylus.find(e => e.loader == 'stylus-loader')
-      // extend default options
-      Object.assign(stylus.options, {
-        import: [
-          '~assets/stylus/variables.styl',
-          '~assets/stylus/mixins.styl'
-        ]
-      })
-    }
-  },
-  generate: {
-    minify: {
-      collapseWhitespace: false
     }
   }
 }

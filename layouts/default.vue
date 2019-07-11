@@ -9,21 +9,13 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import TheBackground from '~/components/TheBackground'
 import TheNav from '~/components/TheNav'
 import TheFirstview from '~/components/TheFirstview'
 import TheAudio from '~/components/TheAudio'
 
 export default {
-  mounted () {
-    const progress = document.getElementsByClassName('nuxt-progress')[0]
-    progress.style.height = this.$device.isMobile ? '10px' : '20px'
-    const userAgent = window.navigator.userAgent.toLowerCase()
-    if (userAgent.indexOf('msie') !== -1 || userAgent.indexOf('trident') !== -1 || userAgent.indexOf('edge') !== -1) {
-      this.$router.replace({ path: 'sorry' })
-    }
-  },
   components: {
     TheBackground,
     TheNav,
@@ -36,9 +28,19 @@ export default {
     })
   },
   watch: {
-    painted () {
+    painted() {
       this.$el.style.background = '#191919'
       document.getElementById('scrollArea').style.opacity = '1'
+    }
+  },
+  mounted() {
+    const userAgent = window.navigator.userAgent.toLowerCase()
+    if (
+      userAgent.indexOf('msie') !== -1 ||
+      userAgent.indexOf('trident') !== -1 ||
+      userAgent.indexOf('edge') !== -1
+    ) {
+      this.$router.replace({ path: 'sorry' })
     }
   }
 }

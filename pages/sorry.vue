@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import {TweenMax, Expo} from 'gsap'
+import { TweenMax, Expo } from 'gsap'
 
 export default {
-  mounted () {
+  mounted() {
     requestAnimationFrame(() => {
       TweenMax.to(this.$refs.sorry, 2, {
         opacity: 1,
@@ -40,5 +40,3 @@ export default {
   font-weight bold
   opacity 0
 </style>
-
-

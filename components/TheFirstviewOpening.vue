@@ -42,11 +42,11 @@
 </template>
 
 <script>
-import {mapGetters, mapMutations} from 'vuex'
-import {TweenMax, Expo, RoughEase} from 'gsap'
+import { mapGetters, mapMutations } from 'vuex'
+import { TweenMax, Expo, RoughEase } from 'gsap'
 
 export default {
-  data () {
+  data() {
     return {
       sitename: 'Nitta.Studio',
       offDummy: false,
@@ -86,7 +86,7 @@ export default {
     })
   },
   watch: {
-    async started () {
+    async started() {
       this.dummy()
       this.flash()
       await this.$delay(900)
@@ -109,30 +109,50 @@ export default {
     }
   },
   methods: {
-    dummy () {
+    dummy() {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo('.TheFirstviewOpening_Dummy1', 0.3, {
-          y: '-100%',
-          ease: Expo.easeInOut
-        }, 0.2)
-        TweenMax.staggerTo('.TheFirstviewOpening_Dummy2', 0.3, {
-          y: '100%',
-          ease: Expo.easeInOut,
-          delay: 0.2
-        }, 0.2)
-        TweenMax.staggerTo('.TheFirstviewOpening_Dummy3', 0.3, {
-          y: '-100%',
-          ease: Expo.easeInOut,
-          delay: 0.4
-        }, 0.2)
-        TweenMax.staggerTo('.TheFirstviewOpening_Dummy4', 0.3, {
-          y: '100%',
-          ease: Expo.easeInOut,
-          delay: 0.6
-        }, 0.2)
+        TweenMax.staggerTo(
+          '.TheFirstviewOpening_Dummy1',
+          0.3,
+          {
+            y: '-100%',
+            ease: Expo.easeInOut
+          },
+          0.2
+        )
+        TweenMax.staggerTo(
+          '.TheFirstviewOpening_Dummy2',
+          0.3,
+          {
+            y: '100%',
+            ease: Expo.easeInOut,
+            delay: 0.2
+          },
+          0.2
+        )
+        TweenMax.staggerTo(
+          '.TheFirstviewOpening_Dummy3',
+          0.3,
+          {
+            y: '-100%',
+            ease: Expo.easeInOut,
+            delay: 0.4
+          },
+          0.2
+        )
+        TweenMax.staggerTo(
+          '.TheFirstviewOpening_Dummy4',
+          0.3,
+          {
+            y: '100%',
+            ease: Expo.easeInOut,
+            delay: 0.6
+          },
+          0.2
+        )
       })
     },
-    over () {
+    over() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.over, 0.3, {
           width: '100%',
@@ -151,7 +171,7 @@ export default {
         })
       })
     },
-    flash () {
+    flash() {
       requestAnimationFrame(() => {
         TweenMax.to(document.body, 3.5, {
           backgroundColor: '#0f0f0f',
@@ -163,43 +183,58 @@ export default {
             clamp: true
           })
         })
-        TweenMax.staggerTo('.TheFirstviewOpening_Vertical', 2, {
-          y: '2px',
-          x: '2px',
-          opacity: 0.13,
-          ease: RoughEase.ease.config({
-            template: Expo.easeInOut,
-            strength: 7,
-            points: 30,
-            taper: 'none',
-            randomize: true,
-            clamp: false
-          }),
-          startAt: {
-            y: '-2px',
-            x: '-2px',
-            opacity: 0
+        TweenMax.staggerTo(
+          '.TheFirstviewOpening_Vertical',
+          2,
+          {
+            y: '2px',
+            x: '2px',
+            opacity: 0.13,
+            ease: RoughEase.ease.config({
+              template: Expo.easeInOut,
+              strength: 7,
+              points: 30,
+              taper: 'none',
+              randomize: true,
+              clamp: false
+            }),
+            startAt: {
+              y: '-2px',
+              x: '-2px',
+              opacity: 0
+            },
+            repeat: 1,
+            yoyo: true
           },
-          repeat: 1,
-          yoyo: true
-        }, 0.15)
+          0.15
+        )
       })
     },
-    horizontal () {
+    horizontal() {
       requestAnimationFrame(() => {
-        TweenMax.staggerTo('.TheFirstviewOpening_HorizontalTop', 1.5, {
-          x: '210%',
-          opacity: 0,
-          ease: Expo.easeOut
-        }, 0.15)
-        TweenMax.staggerTo('.TheFirstviewOpening_HorizontalBottom', 1.5, {
-          x: '-210%',
-          opacity: 0,
-          ease: Expo.easeOut
-        }, 0.15)
+        TweenMax.staggerTo(
+          '.TheFirstviewOpening_HorizontalTop',
+          1.5,
+          {
+            x: '210%',
+            opacity: 0,
+            ease: Expo.easeOut
+          },
+          0.15
+        )
+        TweenMax.staggerTo(
+          '.TheFirstviewOpening_HorizontalBottom',
+          1.5,
+          {
+            x: '-210%',
+            opacity: 0,
+            ease: Expo.easeOut
+          },
+          0.15
+        )
       })
     },
-    enter () {
+    enter() {
       requestAnimationFrame(() => {
         TweenMax.to('.TheFirstviewOpening_Letter', 1.4, {
           opacity: 1,
@@ -213,7 +248,7 @@ export default {
         })
       })
     },
-    clip () {
+    clip() {
       requestAnimationFrame(() => {
         TweenMax.to(this.$refs.face, 1.3, {
           width: '0%',

@@ -5,7 +5,7 @@
 
 <script>
 export default {
-  mounted () {
+  mounted() {
     const progress = document.getElementsByClassName('nuxt-progress')[0]
     progress.style.height = this.$device.isMobile ? '10px' : '20px'
   }

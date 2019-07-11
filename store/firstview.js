@@ -13,16 +13,16 @@ export const getters = {
 }
 
 export const mutations = {
-  start (state) {
+  start(state) {
     state.started = true
   },
-  paint (state) {
+  paint(state) {
     state.painted = true
   },
-  complete (state) {
+  complete(state) {
     state.completed = true
   },
-  kill (state) {
+  kill(state) {
     state.killed = true
   }
 }
