@@ -92,7 +92,7 @@ module.exports = {
     start_url: '/',
     icons: [
       {
-        src: '/icon.png',
+        src: '/icon-0905.png',
         sizes: '48x48 96x96 128x128 256x256'
       }
     ]
