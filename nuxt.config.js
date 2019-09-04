@@ -38,11 +38,8 @@ module.exports = {
       { rel: 'apple-touch-icon', href: '/icon.png' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700'
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/earlyaccess/notosansjapanese.css'
+        href:
+          'https://fonts.googleapis.com/css?family=Spectral|Noto+Serif+JP&display=swap'
       }
     ]
   },
