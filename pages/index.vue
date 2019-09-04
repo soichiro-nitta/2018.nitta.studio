@@ -8,7 +8,7 @@
     .separator
     .section
       .nameEng Soichiro Nitta
-      h1.nameJa 新田 聡一郎 (23)
+      h1.nameJa 新田 聡一郎 ({{age}})
     .separator
     .section
       .subTitle 01. Design x Develop
@@ -34,6 +34,10 @@
           .date Mar. 2015 ~ Dec. 2017
         li フリーランス@埼玉
           .date Jan. 2018 ~
+        li フリーランス@神戸
+          .date Aug. 2018 ~
+        li フリーランス@埼玉
+          .date June. 2019 ~
 </template>
 
 <script>
@@ -42,6 +46,41 @@ import { TweenMax, Elastic, Back } from 'gsap'
 
 export default {
   computed: {
+    age() {
+      const yourBirthDay = {
+        year: 1994,
+        month: 12,
+        date: 26
+      }
+      const birthDate = new Date(
+        yourBirthDay.year,
+        yourBirthDay.month - 1,
+        yourBirthDay.date
+      )
+      const y2 = birthDate
+        .getFullYear()
+        .toString()
+        .padStart(4, '0')
+      const m2 = (birthDate.getMonth() + 1).toString().padStart(2, '0')
+      const d2 = birthDate
+        .getDate()
+        .toString()
+        .padStart(2, '0')
+      const today = new Date()
+      const y1 = today
+        .getFullYear()
+        .toString()
+        .padStart(4, '0')
+      const m1 = (today.getMonth() + 1).toString().padStart(2, '0')
+      const d1 = today
+        .getDate()
+        .toString()
+        .padStart(2, '0')
+      const age = Math.floor(
+        (Number(y1 + m1 + d1) - Number(y2 + m2 + d2)) / 10000
+      )
+      return age
+    },
     ...mapGetters({
       completed: 'firstview/completed'
     })
