@@ -30,12 +30,12 @@ module.exports = {
       },
       {
         property: 'twitter:image',
-        content: 'https://nitta.studio/ogp-0426.jpg'
+        content: 'https://nitta.studio/ogp-0905.jpg'
       }
     ],
     link: [
-      { rel: 'icon', href: '/icon.png' },
-      { rel: 'apple-touch-icon', href: '/icon.png' },
+      { rel: 'icon', href: '/icon-0905.png' },
+      { rel: 'apple-touch-icon', href: '/icon-0905.png' },
       {
         rel: 'stylesheet',
         href:
