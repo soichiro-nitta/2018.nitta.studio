@@ -39,7 +39,7 @@ module.exports = {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css?family=Spectral|Noto+Serif+JP&display=swap'
+          'https://fonts.googleapis.com/css?family=Spectral|Noto+Serif+JP:600,900&display=swap'
       }
     ]
   },
