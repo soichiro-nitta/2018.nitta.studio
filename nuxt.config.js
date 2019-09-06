@@ -19,7 +19,7 @@ module.exports = {
       { name: 'keywords', content: 'Nitta Studio,新田 聡一郎,Soichiro,Nitta' },
       { property: 'fb:app_id', content: '654555221603303' },
       { property: 'og:description', content: 'Produced by Soichiro Nitta.' },
-      { property: 'og:image', content: 'https://nitta.studio/ogp-0905.png' },
+      { property: 'og:image', content: 'https://nitta.studio/ogp-0906.png' },
       { property: 'og:site_name', content: 'Nitta.Studio' },
       { property: 'twitter:card', content: 'summary_large_image' },
       { property: 'twitter:site', content: '@soichiro_nitta' },
@@ -30,12 +30,12 @@ module.exports = {
       },
       {
         property: 'twitter:image',
-        content: 'https://nitta.studio/ogp-0905.png'
+        content: 'https://nitta.studio/ogp-0906.png'
       }
     ],
     link: [
-      { rel: 'icon', href: '/icon-0905.png' },
-      { rel: 'apple-touch-icon', href: '/icon-0905.png' },
+      { rel: 'icon', href: '/icon-0906.png' },
+      { rel: 'apple-touch-icon', href: '/icon-0906.png' },
       {
         rel: 'stylesheet',
         href:
@@ -92,7 +92,7 @@ module.exports = {
     start_url: '/',
     icons: [
       {
-        src: '/icon-0905.png',
+        src: '/icon-0906.png',
         sizes: '48x48 96x96 128x128 256x256'
       }
     ]
