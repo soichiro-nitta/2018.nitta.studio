@@ -226,9 +226,9 @@ export default {
   head: {
     title: 'About',
     meta: [
-      { property: 'og:title', content: 'About | Nitta.Studio🖕🏻' },
+      { property: 'og:title', content: 'About / Nitta.Studio🖕🏻' },
       { property: 'og:url', content: 'https://nitta.studio/about' },
-      { property: 'twitter:title', content: 'About | Nitta.Studio🖕🏻' }
+      { property: 'twitter:title', content: 'About / Nitta.Studio🖕🏻' }
     ]
   },
   transition: {

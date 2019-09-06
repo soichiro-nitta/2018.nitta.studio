@@ -3,7 +3,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s | Nitta.Studio🖕🏻',
+    titleTemplate: '%s / Nitta.Studio🖕🏻',
     meta: [
       { charset: 'utf-8' },
       {

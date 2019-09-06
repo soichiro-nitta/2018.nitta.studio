@@ -130,9 +130,9 @@ export default {
   head: {
     title: 'Home',
     meta: [
-      { property: 'og:title', content: 'Home | Nitta.Studio🖕🏻' },
+      { property: 'og:title', content: 'Home / Nitta.Studio🖕🏻' },
       { property: 'og:url', content: 'https://nitta.studio/' },
-      { property: 'twitter:title', content: 'Home | Nitta.Studio🖕🏻' }
+      { property: 'twitter:title', content: 'Home / Nitta.Studio🖕🏻' }
     ]
   },
   transition: {
