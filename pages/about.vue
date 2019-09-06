@@ -30,19 +30,27 @@
           |  SCSS
         li JavaScript
           span   /
-          |  Nuxt
+          |  TypeScript
+          span   /
+          |  React
+          span   /
+          |  Next
+          span   /
+          |  Gatsby
           span  /
           |  Vue
+          span   /
+          |  Nuxt
           span  /
           |  Riot
-          span  /
-          |  React
           span  /
           |  Node
         li GSAP(TweenMax)
           span  /
           |  CSS Animation
-        li PHP
+        li Go
+          span  /
+          |  PHP
           span  /
           |  CodeIgniter
           span  /
