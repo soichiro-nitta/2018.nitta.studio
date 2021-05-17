@@ -104,7 +104,7 @@ export default {
     title: 'Contact',
     meta: [
       { property: 'og:title', content: 'Contact / Nitta.Studio🖕🏻' },
-      { property: 'og:url', content: 'https://nitta.studio/contact' },
+      { property: 'og:url', content: 'https://2018.nitta.studio/contact' },
       { property: 'twitter:title', content: 'Contact / Nitta.Studio🖕🏻' }
     ]
   },

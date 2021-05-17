@@ -19,7 +19,7 @@ module.exports = {
       { name: 'keywords', content: 'Nitta Studio,新田 聡一郎,Soichiro,Nitta' },
       { property: 'fb:app_id', content: '654555221603303' },
       { property: 'og:description', content: 'Produced by Soichiro Nitta.' },
-      { property: 'og:image', content: 'https://nitta.studio/ogp-0906.png' },
+      { property: 'og:image', content: 'https://2018.nitta.studio/ogp-0906.png' },
       { property: 'og:site_name', content: 'Nitta.Studio' },
       { property: 'twitter:card', content: 'summary_large_image' },
       { property: 'twitter:site', content: '@soichiro_nitta' },
@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         property: 'twitter:image',
-        content: 'https://nitta.studio/ogp-0906.png'
+        content: 'https://2018.nitta.studio/ogp-0906.png'
       }
     ],
     link: [

@@ -227,7 +227,7 @@ export default {
     title: 'About',
     meta: [
       { property: 'og:title', content: 'About / Nitta.Studio🖕🏻' },
-      { property: 'og:url', content: 'https://nitta.studio/about' },
+      { property: 'og:url', content: 'https://2018.nitta.studio/about' },
       { property: 'twitter:title', content: 'About / Nitta.Studio🖕🏻' }
     ]
   },

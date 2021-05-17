@@ -131,7 +131,7 @@ export default {
     title: 'Home',
     meta: [
       { property: 'og:title', content: 'Home / Nitta.Studio🖕🏻' },
-      { property: 'og:url', content: 'https://nitta.studio/' },
+      { property: 'og:url', content: 'https://2018.nitta.studio/' },
       { property: 'twitter:title', content: 'Home / Nitta.Studio🖕🏻' }
     ]
   },
