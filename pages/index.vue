@@ -38,6 +38,8 @@
           .date Aug. 2018 ~
         li フリーランス@埼玉
           .date June. 2019 ~
+        li 法人化
+          .date Aug. 2020 ~
 </template>
 
 <script>
